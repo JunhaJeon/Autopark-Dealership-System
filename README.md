@@ -4,7 +4,7 @@ A Java program that simulates an automated dealership system using Object-Orient
 # Overview
 This project builds upon a basic AutoPark system and enhances it by introducing dynamic data structures and new functionality such as customer tracking, item searches, stock management, and file persistence. This version supports registering customers, managing inventory dynamically, searching/filtering items, selling to customers, and saving/loading state from files.
 
-🛠 Technologies Used
+# Technologies Used
 Java
 
 Object-Oriented Programming (OOP)
