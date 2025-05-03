@@ -14,14 +14,14 @@ Abstract Data Types (List, Map)
 File I/O
 
 # Features
-✅ Customer Management
+Customer Management
 Register customers with unique names
 
 Track individual purchase histories
 
 Generate reports of customer spending and purchased items
 
-✅ Inventory Management
+Inventory Management
 Add items without duplication (based on toString())
 
 Add stock to existing items
@@ -30,12 +30,12 @@ Sell items with quantity validation
 
 Get top X popular items by number sold
 
-✅ Search and Filtering
+Search and Filtering
 Search items by keyword (case-insensitive)
 
 Advanced search with price filtering
 
-✅ Persistence
+Persistence
 Save entire AutoPark (items + customers) to a file
 
 Load AutoPark data from file
