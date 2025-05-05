@@ -1,54 +1,44 @@
 # Autopark
-A Java program that simulates an automated dealership system using Object-Oriented Programming, Abstract Data Types (ADTs), and File I/O.
+A Java program simulating an automated vehicle dealership using Abstract Data Types (ADTs), Object-Oriented Programming, and File I/O.
 
 # Overview
-This project builds upon a basic AutoPark system and enhances it by introducing dynamic data structures and new functionality such as customer tracking, item searches, stock management, and file persistence. This version supports registering customers, managing inventory dynamically, searching/filtering items, selling to customers, and saving/loading state from files.
+This project models a dealership system where customers can register, browse and purchase vehicles, and their purchase history is tracked. The dealership manages its inventory dynamically using ADTs and allows saving/loading system data to and from files. It was developed for an academic assignment focused on practicing OOP principles and Java collections.
 
 # Technologies Used
 Java
 
 Object-Oriented Programming (OOP)
 
-Abstract Data Types (List, Map)
+Java Collections Framework (ArrayList, HashMap)
 
-File I/O
+File I/O (BufferedReader, PrintWriter, etc.)
 
 # Features
 ✅ Customer Management
-Register customers with unique names
+Register customers (unique names only)
 
-Track individual purchase histories
+Track total spending and detailed purchase history
 
-Generate reports of customer spending and purchased items
+Prevent duplicate customer registration
 
 ✅ Inventory Management
-Add items without duplication (based on toString())
+Add vehicle and tire items without duplicates (based on toString())
 
-Add stock to existing items
+Increase stock for existing items
 
-Sell items with quantity validation
+Search items by keyword and optional price range
 
-Get top X popular items by number sold
+Get most popular (best-selling) items
 
-✅ Search and Filtering
-Search items by keyword (case-insensitive)
+✅ File Handling
+Save AutoPark state (items + customers) to file
 
-Advanced search with price filtering
+Load AutoPark state from file safely with validationg
 
-✅ Persistence
-Save entire AutoPark (items + customers) to a file
+✅ Analytics
+Get top X popular items sold, sorted by quantity
 
-Load AutoPark data from file
-
-# Class Highlights
-AutoPark
-Handles inventory and customer management using expandable ADTs (List, Map).
-
-Customer
-Tracks purchase history and calculates total spending.
-
-Item & Subclasses
-Represents various sellable items (e.g., cars). Includes pricing, stock tracking, and sales data.
+Print purchase history per customer
 
 # File I/O
 Save state to file via saveToFile(String filename)
@@ -59,28 +49,57 @@ Load state from file via loadFromFile(String filename)
 Two test classes are provided for basic functionality. Additional custom tests are encouraged and included in this repo.
 
 # Sample Output
-John has spent $64,000.00
-2 x AWD SUV: 2021 Chevy, Trailblazer (Red), price $32,000.00 each (8 in stock, 2 sold)
+=== Registered Customers ===
+Alice has spent $64,000.00
+2 x AWD SUV: 2021 Chevy Trailblazer (Red), $32,000.00 each
+
+=== Popular Items ===
+1. AWD SUV: 2021 Chevy Trailblazer (Red) - 2 units sold
+2. All-Season Tire: Goodyear Wrangler - 1 unit sold
+
 
 # Project Structure
 ```
-/src
-  ├── AutoPark.java
-  ├── Customer.java
-  ├── Item.java
-  ├── [Other Item subclasses].java
-/tests
-  ├── AutoParkTest1.java
-  ├── AutoParkTest2.java
+AutoPark.java                 // Core dealership logic
+AutoParkTester.java           // Main tester class with example functionality
+AutoParkLoadTester.java       // Demonstrates loading/saving state from file
+Customer.java                 // Manages customer info and purchase history
+
+Item.java                     // Base class for all items
+Tire.java                     // Tire item implementation
+
+Vehicle.java                  // Base class for all vehicle types
+  ├── CommercialVehicle.java
+  ├── PersonalVehicle.java
+        ├── Sedan.java
+        ├── Minivan.java
+        ├── SUV.java
+  └── Truck.java              // Specific commercial vehicle subclass
+
 ```
 
 # How to Run
-Compile the Java files:
-javac src/*.java tests/*.java
+Compile:
+javac *.java
 
-Run the test files:
-java tests.AutoParkTest1
-java tests.AutoParkTest2
+Run the test file:
+java AutoParkTester
+
+Run File I/O Test:
+java AutoParkLoadTester
+
+
+# Key Concepts Practiced
+Object-Oriented Design (Inheritance, Encapsulation)
+
+Abstract Data Types (Lists and Maps)
+
+Defensive programming and validation
+
+File I/O (persistence, serialization via text files)
+
+Custom search and sort logic
+
 
 # School Project
 This project was part of my coursework for "COMP1406 Summer 2024" at Carleton Universiry.
